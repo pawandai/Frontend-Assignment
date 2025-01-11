@@ -48,8 +48,8 @@ const data = [
 
 export default function PriceChart() {
   return (
-    <Card className="w-full max-w-4xl bg-white">
-      <CardHeader className="flex flex-row items-center space-x-4 pb-2">
+    <Card className="w-full max-w-4xl bg-white space-y-2">
+      <CardHeader className="flex flex-row items-center gap-3 pb-2">
         <Image
           src="/bitcoin.svg"
           alt="Bitcoin logo"
@@ -58,7 +58,7 @@ export default function PriceChart() {
           className="rounded-full"
         />
         <div className="flex items-center gap-3">
-          <h2 className="text-2xl font-bold">Bitcoin</h2>
+          <h2 className="text-xl md:text-2xl font-bold">Bitcoin</h2>
           <span className="text-gray-500">BTC</span>
           <Badge
             variant="secondary"
@@ -72,27 +72,29 @@ export default function PriceChart() {
       <CardContent className="space-y-6">
         <div className="space-y-1">
           <div className="flex items-center gap-3">
-            <span className="text-3xl font-bold">$46,953.04</span>
+            <span className="text-2xl md:text-3xl font-bold">$46,953.04</span>
             <Badge variant="secondary" className="bg-green-100 text-green-600">
               <ArrowUp className="mr-1 h-3 w-3" />
               2.51%
             </Badge>
             <span className="text-gray-500">(24H)</span>
           </div>
-          <div className="text-gray-500">₹ 39,42,343</div>
+          <div className="text-gray-500 font-semibold">₹ 39,42,343</div>
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-xl font-semibold">Bitcoin Price Chart (USD)</h3>
-            <Tabs defaultValue="7D" className="w-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <h3 className="text-lg md:text-xl font-semibold">
+              Bitcoin Price Chart (USD)
+            </h3>
+            <Tabs defaultValue="7D" className="w-full md:w-auto">
               <TabsList className="grid grid-cols-8 bg-transparent h-8">
                 {["1H", "24H", "7D", "1M", "3M", "6M", "1Y", "ALL"].map(
                   (period) => (
                     <TabsTrigger
                       key={period}
                       value={period}
-                      className={`px-3 text-sm ${
+                      className={`px-1 md:px-3 text-xs md:text-sm ${
                         period === "7D" ? "text-blue-600" : "text-gray-500"
                       }`}
                     >
@@ -104,7 +106,7 @@ export default function PriceChart() {
             </Tabs>
           </div>
 
-          <div className="h-[400px] w-full">
+          <div className="h-[200px] sm:h-[300px] md:h-[400px] w-full mx-2 md:mx-0">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
                 data={data}
@@ -126,7 +128,7 @@ export default function PriceChart() {
                   axisLine={false}
                   tickLine={false}
                   tick={{ fill: "#6B7280", fontSize: 12 }}
-                  interval={6}
+                  interval="preserveStartEnd"
                   padding={{ left: 10, right: 10 }}
                 />
                 <YAxis
@@ -134,7 +136,7 @@ export default function PriceChart() {
                   axisLine={false}
                   tickLine={false}
                   tick={{ fill: "#6B7280", fontSize: 12 }}
-                  width={80}
+                  width={50}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   tickFormatter={(value: any) => `${value.toLocaleString()}`}
                   tickCount={7}

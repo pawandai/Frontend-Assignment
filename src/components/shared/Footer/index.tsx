@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -9,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { LineChart, Line, YAxis } from "recharts";
-import Image from "next/image";
+import { Briefcase } from "lucide-react";
 
 interface CryptoData {
   symbol: string;
@@ -128,16 +127,10 @@ const trendingCoins: CryptoData[] = [
 
 function CryptoCard({ data }: { data: CryptoData }) {
   return (
-    <Card className="w-[260px] p-4 bg-white rounded-xl border border-gray-100">
+    <div className="w-[260px] p-4 bg-white rounded-xl border-2 border-gray-100">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <Image
-            src={data.icon}
-            alt={data.symbol}
-            width={24}
-            height={24}
-            className="rounded-full"
-          />
+          <Briefcase width={24} height={24} className="rounded-full" />
           <span className="font-medium">{data.symbol}</span>
         </div>
         <span
@@ -161,7 +154,7 @@ function CryptoCard({ data }: { data: CryptoData }) {
           />
         </LineChart>
       </div>
-    </Card>
+    </div>
   );
 }
 
@@ -184,8 +177,8 @@ function CryptoSection({ title, data }: { title: string; data: CryptoData[] }) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute -left-12 hover:bg-gray-100" />
-          <CarouselNext className="absolute -right-12 hover:bg-gray-100" />
+          <CarouselPrevious className="absolute hover:bg-gray-100" />
+          <CarouselNext className="absolute hover:bg-gray-100" />
         </Carousel>
       </div>
     </div>

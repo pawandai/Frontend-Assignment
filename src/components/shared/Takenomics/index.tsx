@@ -35,7 +35,7 @@ export default function Tokenomics() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4 mt-2 sm:flex hidden">
       <Card>
         <CardContent className="p-6 space-y-6">
           <h2 className="text-2xl font-bold">Tokenomics</h2>
@@ -43,7 +43,7 @@ export default function Tokenomics() {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Initial Distribution</h3>
 
-            <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex items-center gap-8">
               <div className="w-60 h-60">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>

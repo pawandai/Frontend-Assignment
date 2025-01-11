@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
 
 export default function TeamSection() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 border rounded-md">
       <h1 className="text-4xl font-bold mb-6">Team</h1>
       <p className="text-lg text-muted-foreground mb-12">
         Lorem ipsum dolor sit amet consectetur. Id consequat adipiscing arcu
@@ -45,7 +45,7 @@ export default function TeamSection() {
       <div className="space-y-6">
         {teamMembers.map((member, index) => (
           <Card key={index} className="bg-sky-50 border-0">
-            <CardContent className="p-6 flex flex-col md:flex-row gap-6">
+            <CardContent className="p-6 flex flex-col sm:flex-row items-center justify-center sm:items-start gap-6">
               <div className="flex-shrink-0">
                 <Image
                   src={member.image}
@@ -55,7 +55,7 @@ export default function TeamSection() {
                   className="rounded-lg object-cover"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 text-center sm:text-left">
                 <h3 className="text-xl font-semibold">{member.name}</h3>
                 <p className="text-muted-foreground">{member.designation}</p>
                 <p className="text-muted-foreground leading-relaxed">

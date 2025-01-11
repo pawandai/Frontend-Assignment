@@ -49,7 +49,7 @@ export default function Sentiment() {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 space-y-8">
+    <div className="w-full max-w-7xl mx-auto p-2">
       <section>
         <div className="flex items-center gap-2 mb-4">
           <h2 className="text-2xl font-bold">Sentiment</h2>
@@ -69,7 +69,7 @@ export default function Sentiment() {
                 align: "start",
                 loop: true,
               }}
-              className="w-full"
+              className="w-full relative"
             >
               <CarouselContent className="-ml-4">
                 {events.map((event, index) => (
@@ -99,8 +99,8 @@ export default function Sentiment() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
+              <CarouselPrevious className="flex absolute top-[33%] left-2" />
+              <CarouselNext className="flex absolute top-[33%] right-2" />
             </Carousel>
           </div>
         </div>

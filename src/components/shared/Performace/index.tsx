@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Performance() {
   return (
@@ -95,7 +96,11 @@ export default function Performance() {
                 </CardContent>
               </Card>
             </section>
+          </div>
+        </TabsContent>
 
+        <TabsContent value="fundamentals">
+          <div className="space-y-8">
             <section>
               <div className="flex items-center gap-2 mb-4">
                 <h2 className="text-2xl font-bold">Fundamentals</h2>
@@ -183,42 +188,38 @@ export default function Performance() {
           </div>
         </TabsContent>
 
-        <TabsContent value="fundamentals">
-          <div className="h-32 flex items-center justify-center text-gray-500">
-            Fundamentals content
-          </div>
-        </TabsContent>
-
         <TabsContent value="news-insights">
-          <div className="h-32 flex items-center justify-center text-gray-500">
-            News Insights content
-          </div>
+          <PerformanceSkeleton />
         </TabsContent>
 
         <TabsContent value="sentiments">
-          <div className="h-32 flex items-center justify-center text-gray-500">
-            Sentiments content
-          </div>
+          <PerformanceSkeleton />
         </TabsContent>
 
         <TabsContent value="team">
-          <div className="h-32 flex items-center justify-center text-gray-500">
-            Team content
-          </div>
+          <PerformanceSkeleton />
         </TabsContent>
 
         <TabsContent value="technicals">
-          <div className="h-32 flex items-center justify-center text-gray-500">
-            Technicals content
-          </div>
+          <PerformanceSkeleton />
         </TabsContent>
 
         <TabsContent value="tokenomics">
-          <div className="h-32 flex items-center justify-center text-gray-500">
-            Tokenomics content
-          </div>
+          <PerformanceSkeleton />
         </TabsContent>
       </Tabs>
     </div>
   );
 }
+
+const PerformanceSkeleton = () => (
+  <div className="space-y-8">
+    <section>
+      <div className="flex items-center gap-2 mb-4">
+        <Skeleton className="h-10 w-full"></Skeleton>
+        <Skeleton className="w-5 h-5 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center text-sm"></Skeleton>
+      </div>
+      <Skeleton className="h-96 w-full" />
+    </section>
+  </div>
+);
