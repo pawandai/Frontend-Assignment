@@ -1,33 +1,15 @@
+"use client";
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import Image from "next/image";
-
-const trendingCoins = [
-  {
-    name: "Ethereum",
-    symbol: "ETH",
-    percentage: "8.21",
-    iconUrl: "/ethereum.svg",
-    iconBg: "bg-[#627EEA]",
-  },
-  {
-    name: "Bitcoin",
-    symbol: "BTC",
-    percentage: "5.26",
-    iconUrl: "/bitcoin.svg",
-    iconBg: "bg-[#F7931A]",
-  },
-  {
-    name: "Polygon",
-    symbol: "MATIC",
-    percentage: "4.32",
-    iconUrl: "/polygon.svg",
-    iconBg: "bg-[#8247E5]",
-  },
-];
+import useTrendingCoins from "@/hooks/useTrendingCoins";
 
 export default function TrendingCoins() {
+  const { trendingCoins } = useTrendingCoins();
+
   return (
     <Card className="w-full max-w-md">
       <CardHeader className="pb-3">
@@ -37,20 +19,14 @@ export default function TrendingCoins() {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {trendingCoins.map((coin) => (
+          {trendingCoins.map((coin: any) => (
             <div
-              key={coin.symbol}
+              key={coin.coin_id}
               className="flex items-center justify-between"
             >
               <div className="flex items-center gap-2">
-                <div className={`rounded-full p-1 ${coin.iconBg}`}>
-                  <Image
-                    src={coin.iconUrl}
-                    alt={`${coin.name} logo`}
-                    width={24}
-                    height={24}
-                    className="rounded-full"
-                  />
+                <div className={`rounded-full p-1`}>
+                  <Image src={coin.image} alt="Title" height={40} width={40} />
                 </div>
                 <span className="font-medium">
                   {coin.name}
@@ -58,11 +34,18 @@ export default function TrendingCoins() {
                 </span>
               </div>
               <Badge
-                variant="secondary"
-                className="bg-green-100 text-green-600 font-medium"
+                variant={`destructive`}
+                className={`${
+                  coin.percentageChange.toFixed(2) > 0 &&
+                  "text-green-500 bg-green-200"
+                } font-medium`}
               >
-                <ArrowUp className="mr-1 h-3 w-3" />
-                {coin.percentage}%
+                {coin.percentageChange.toFixed(2) > 0 ? (
+                  <ArrowUp className="mr-1 h-3 w-3" />
+                ) : (
+                  <ArrowDown className="mr-1 h-3 w-3" />
+                )}
+                {coin.percentageChange.toFixed(2)}%
               </Badge>
             </div>
           ))}

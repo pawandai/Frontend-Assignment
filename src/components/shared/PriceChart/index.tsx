@@ -13,7 +13,8 @@ import {
   Area,
 } from "recharts";
 import Image from "next/image";
-import { ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
+import useCryptoPrice from "@/hooks/useCryptoPrice";
 
 const data = [
   { date: "16 Dec", price: 42100 },
@@ -47,6 +48,9 @@ const data = [
 ];
 
 export default function PriceChart() {
+  const { bitcoinData } = useCryptoPrice();
+  console.log("Bitcoin Data", bitcoinData);
+
   return (
     <Card className="w-full max-w-4xl bg-white space-y-2">
       <CardHeader className="flex flex-row items-center gap-3 pb-2">
@@ -72,14 +76,29 @@ export default function PriceChart() {
       <CardContent className="space-y-6">
         <div className="space-y-1">
           <div className="flex items-center gap-3">
-            <span className="text-2xl md:text-3xl font-bold">$46,953.04</span>
-            <Badge variant="secondary" className="bg-green-100 text-green-600">
-              <ArrowUp className="mr-1 h-3 w-3" />
-              2.51%
+            <span className="text-2xl md:text-3xl font-bold">
+              ${bitcoinData?.usd}
+            </span>
+            <Badge
+              variant="secondary"
+              style={{
+                color:
+                  Number(bitcoinData.usd_24h_change) >= 0 ? "green" : "red",
+              }}
+              className="bg-green-100 text-green-600"
+            >
+              {Number(bitcoinData.usd_24h_change) >= 0 ? (
+                <ArrowUp className="mr-1 h-3 w-3" />
+              ) : (
+                <ArrowDown className="mr-1 h-3 w-3" />
+              )}
+              {Number(bitcoinData.usd_24h_change).toFixed(2)}%
             </Badge>
             <span className="text-gray-500">(24H)</span>
           </div>
-          <div className="text-gray-500 font-semibold">₹ 39,42,343</div>
+          <div className="text-gray-500 font-semibold">
+            ₹ {bitcoinData?.inr}
+          </div>
         </div>
 
         <div className="space-y-4">
