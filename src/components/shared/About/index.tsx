@@ -4,7 +4,7 @@ import { Calculator, Receipt } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="max-w-4xl mx-auto p-4 space-y-8 border rounded-md">
+    <div className="max-w-4xl mx-auto p-4 space-y-8 border rounded-md mt-8">
       <section className="space-y-4">
         <h2 className="text-xl font-bold">About Bitcoin</h2>
 

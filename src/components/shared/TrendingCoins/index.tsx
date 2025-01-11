@@ -10,6 +10,8 @@ import useTrendingCoins from "@/hooks/useTrendingCoins";
 export default function TrendingCoins() {
   const { trendingCoins } = useTrendingCoins();
 
+  console.log("Trending Coins: ", trendingCoins);
+
   return (
     <Card className="w-full max-w-md">
       <CardHeader className="pb-3">
@@ -26,7 +28,13 @@ export default function TrendingCoins() {
             >
               <div className="flex items-center gap-2">
                 <div className={`rounded-full p-1`}>
-                  <Image src={coin.image} alt="Title" height={40} width={40} />
+                  <Image
+                    src={coin.image}
+                    alt="Title"
+                    height={40}
+                    width={40}
+                    className="rounded-full"
+                  />
                 </div>
                 <span className="font-medium">
                   {coin.name}

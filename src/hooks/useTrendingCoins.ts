@@ -21,11 +21,13 @@ const useTrendingCoins = () => {
         // Extract the top 3 trending coins
         const top3Coins = data.coins.slice(0, 3).map((coin: any) => ({
           id: coin.item.id,
+          price: coin.item.data.price,
           name: coin.item.name,
           symbol: coin.item.symbol,
           marketCapRank: coin.item.market_cap_rank,
           image: coin.item.thumb,
           percentageChange: coin.item.data.price_change_percentage_24h.usd,
+          sparkline: coin.item.data.sparkline,
         }));
         setTrendingCoins(top3Coins);
       } catch (err: any) {

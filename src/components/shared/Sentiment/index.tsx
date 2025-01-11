@@ -49,7 +49,7 @@ export default function Sentiment() {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-2">
+    <div className="w-full max-w-7xl mx-auto p-2 my-4">
       <section>
         <div className="flex items-center gap-2 mb-4">
           <h2 className="text-2xl font-bold">Sentiment</h2>
@@ -107,7 +107,7 @@ export default function Sentiment() {
       </section>
 
       <section>
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex items-center gap-2 my-6">
           <h3 className="text-xl font-semibold text-gray-700">
             Analyst Estimates
           </h3>

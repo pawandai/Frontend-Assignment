@@ -36,7 +36,7 @@ export default function Home() {
         </Breadcrumb>
       </Container>
       <Container className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-4 px-2">
-        <section className="lg:col-span-2">
+        <section className="lg:col-span-2 place-items-center">
           <PriceChart />
           <Performance />
           <Sentiment />
@@ -44,7 +44,7 @@ export default function Home() {
           <Tokenomics />
           <TeamSection />
         </section>
-        <aside className="lg:col-span-1 lg:sticky relative bottom-0 flex flex-col gap-4">
+        <aside className="lg:col-span-1 relative flex flex-col items-center gap-4">
           <GetStarted />
           <TrendingCoins />
         </aside>
