@@ -13,15 +13,15 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <GetStarted />
-      <TrendingCoins />
-      <PriceChart />
-      <Performance />
-      <Sentiment />
-      <Tokenomics />
-      <TeamSection />
-      <About />
-      <Footer />
+      {/* <GetStarted /> */}
+      {/* <TrendingCoins /> */}
+      {/* <PriceChart /> */}
+      {/* <Performance /> */}
+      {/* <Sentiment /> */}
+      {/* <Tokenomics /> */}
+      {/* <TeamSection /> */}
+      {/* <About /> */}
+      {/* <Footer /> */}
     </main>
   );
 }
