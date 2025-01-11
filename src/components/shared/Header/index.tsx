@@ -17,24 +17,18 @@ import {
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string; href: string }[] = [
   {
     title: "Crypto Taxes",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    href: "/",
   },
   {
     title: "Free Tools",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    href: "/",
   },
   {
     title: "Resource Center",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    href: "/",
   },
 ];
 
