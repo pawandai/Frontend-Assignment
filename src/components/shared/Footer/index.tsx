@@ -103,7 +103,6 @@ function CryptoSection({ title, data }: { title: string; data: CryptoData[] }) {
 
 export default function Footer() {
   const { trendingCoins } = useTrendingCoins();
-  console.log("Footer trending coins: ", trendingCoins);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">

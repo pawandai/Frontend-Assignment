@@ -10,8 +10,6 @@ import useTrendingCoins from "@/hooks/useTrendingCoins";
 export default function TrendingCoins() {
   const { trendingCoins } = useTrendingCoins();
 
-  console.log("Trending Coins: ", trendingCoins);
-
   return (
     <Card className="w-full max-w-md">
       <CardHeader className="pb-3">

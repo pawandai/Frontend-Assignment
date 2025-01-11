@@ -49,7 +49,6 @@ const data = [
 
 export default function PriceChart() {
   const { bitcoinData } = useCryptoPrice();
-  console.log("Bitcoin Data", bitcoinData);
 
   return (
     <Card className="w-full max-w-4xl bg-white space-y-2">
